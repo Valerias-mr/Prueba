@@ -1,0 +1,32 @@
+package com.mycompany.mavenproject1;
+
+/**
+ *
+ * @author Vale
+ */
+public class Palíndroma {
+    
+    public static void main(String[] args) {
+        Palíndroma p = new Palíndroma();
+        System.out.print("¿La palabra es palindroma?: ");
+        System.out.print(p.Proceso("reconocer"));
+    }
+
+    public boolean Proceso (String s){ 
+        if(s.length() == 0){
+            return true;
+        }else{
+            if (s.length() == 1){
+                return true;
+            }else{  //Funcion para separar las letras y comparar la primera con la ultima
+                if(s.charAt(0) == s.charAt(s.length()-1)){
+                    s = s.substring(1, s.length() - 1);     
+                        return Proceso(s);     
+                }else{
+                    return false;
+                }
+            }
+        }
+    }    
+}
+    
