@@ -1,0 +1,44 @@
+package com.mycompany.mavenproject1;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Vale
+ */
+public class Menor {
+    public static int [] rellenar (int[]vector, int i){
+        i = i-1;
+        if (i>=0){
+            vector[i]=(int) Math.floor(Math.random()*20+10);
+            System.out.println(vector[i]);
+            return rellenar(vector,i);         
+        }
+        return vector;     
+    }
+   
+    public static void main(String[] args) {
+       Scanner Entrada = new Scanner (System.in); //clase que permite tomar los datos del usuario
+       System.out.println("Ingrese la dimension del vector:");
+       String Dato = Entrada.nextLine();
+       int [] vector = new int [Integer.parseInt(Dato)];
+       vector=rellenar(vector,(Integer.parseInt(Dato)));
+       int menor = 999999;
+       System.out.println("el numero menor es: "+menor(vector,vector.length,menor));
+    }
+    
+    public static int menor (int[]vector, int i, int menor){
+        i = i-1;
+        if (i>=0){
+            if (vector[i]<menor){
+                menor = vector[i];
+                return menor(vector,i,menor);         
+            }else{
+                return menor(vector,i,menor);
+            }
+        }
+        return menor;
+    }
+    
+    
+}
