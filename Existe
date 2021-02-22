@@ -1,0 +1,50 @@
+package com.mycompany.mavenproject1;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Vale
+ */
+public class Existe {
+    
+    public static int [] llenarVector (int[]vector, int i){
+        i = i-1;
+        if (i>=0){
+            vector[i]=(int) Math.floor(Math.random()*30+1);
+            System.out.println(vector[i]);
+            return llenarVector(vector,i);         
+        }
+        return vector;     
+    }
+
+    public static void main(String[] args) {
+        Scanner Largo = new Scanner (System.in);
+        System.out.println("Ingrese la dimension del vector:");
+        String Dimension = Largo.nextLine();
+        int D= Integer.parseInt(Dimension);
+        int [] vector = new int [D];
+        vector= llenarVector(vector,(Integer.parseInt(Dimension)));
+        System.out.println ("Ingrese el valor que desea buscar:");
+        String Valor= Largo.nextLine();
+        int numero = Integer.parseInt(Valor);
+        boolean Encontrado = false; 
+        System.out.println(buscar(vector,D,numero,Encontrado));              
+    }
+    
+    public static boolean buscar (int[]vector, int i, int numero, boolean Encontrado){
+        i = i-1;
+        if (i>=0){
+            if (vector[i]!= numero){
+                return buscar(vector,i, numero, Encontrado);                
+            }
+            else{
+                Encontrado = true;
+                return buscar(vector,i,numero, Encontrado);
+            }
+        }
+        return Encontrado;
+    }
+
+
+}
