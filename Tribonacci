@@ -1,0 +1,31 @@
+package com.mycompany.mavenproject1;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Vale
+ */
+public class Tribonacci {
+    
+    public static void main(String[] args) {
+        Scanner entradaEscaner = new Scanner (System.in);
+        System.out.println("Ingrese el numero de la secuencia que desea ver:");
+        String aux=entradaEscaner.nextLine();
+        int n=Integer.parseInt(aux);
+        System.out.println("El numero de la secuencia es: "+secuencia(n));
+    }
+
+    static int secuencia (int num){
+        switch (num) {
+            case 0:
+            case 1:
+            case 2:
+                return 0;
+            case 3:
+                return 1;
+            default:
+                return secuencia(num-1) + secuencia(num-2) + secuencia(num-3);
+        }
+    }
+}    
