@@ -1,0 +1,30 @@
+package com.mycompany.mavenproject1;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Vale
+ */
+public class Potencia {
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        System.out.print("Por favor introduce la base: ");
+        String b = teclado.nextLine();
+        int base = Integer.parseInt(b);
+        System.out.print("Por favor introduce el exponente: ");
+        String a = teclado.nextLine();
+        int exponente = Integer.parseInt(a);
+        System.out.print("Resultado: " + potencia(base, exponente));
+    }
+         
+    public static double potencia(int base, int exponente){
+        if(exponente==0){
+            return 1;
+        } 
+        else {
+            return base * potencia(base, exponente-1);
+        }
+    }
+}
